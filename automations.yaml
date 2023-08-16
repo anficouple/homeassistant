@@ -1,1 +1,14 @@
-[]
+- id: '1692220340124'
+  alias: push HA configuration to GitHub repo
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00:00'
+    enabled: false
+  condition: []
+  action:
+  - service: hassio.addon_stdin
+    data:
+      addon: core_ssh
+      input: ./config/ha_gitpush.sh
+  mode: single
